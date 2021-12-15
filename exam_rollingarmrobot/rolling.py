@@ -45,6 +45,9 @@ def bag():
 def tornado() :
     left_dir = 1.0
     right_dir = -1.0
+    left_pub.publish(left_dir)
+    right_pub.publish(right_dir)
+    rospy.sleep(0.01)
     return
 
 
@@ -52,14 +55,15 @@ def tornado() :
 def main():
 
     while True:
-        z = input('전진=w, 스탑=s, 후진=x  : ' )
+        z = input('전진=w, 스탑=s, 후진=x  토네이도=e: ' )
         if z == 'w' :
             gogo()
-
         if z == 's' :
             stop()
         if z == 'x' :
             bag()
+        if z == 'e' :
+            tornado()
    
     return
 
